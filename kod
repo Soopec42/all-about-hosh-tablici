@@ -1,0 +1,37 @@
+#include <iostream>
+#include <list>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+
+
+int main()
+{
+	unordered_map<string, float> ar;
+
+	ar["apple"] = 0.67f;
+	ar["milk"] = 1.49f; // это виды добавления в таблицу
+	ar["avokado"] = 1.49f;
+	ar.emplace("kakao", 2.42);
+	
+	for (auto item : ar) // вывод всех элементов первого и второго значения
+	{
+		cout << item.first << " " << item.second << endl;
+	}
+		
+	cout << endl << ar["milk"] << endl; // вывод одного элемента
+
+	ar.erase("apple"); // удоление элемента таблицы
+
+	auto it = ar.find("kakao"); // поиск по ключу
+
+	if (it != ar.end()) // проверка найден ли элемент
+	{
+		cout << "cacao price: " << it->second << endl; // разыменовываем итератор
+	}
+	else
+		cout << "not found" << endl;
+	return 0;
+}
+
